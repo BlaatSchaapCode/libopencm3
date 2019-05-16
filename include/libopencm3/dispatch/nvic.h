@@ -73,6 +73,9 @@
 #elif defined(VF6XX)
 #	include <libopencm3/vf6xx/nvic.h>
 
+#elif defined(NRF51)
+#	include <libopencm3/nrfx/nrf51/nvic.h>
+
 #else
 #	warning"no interrupts defined for chipset; NVIC_IRQ_COUNT = 0"
 
