@@ -75,6 +75,14 @@
 
 #elif defined(NRF51)
 #	include <libopencm3/nrfx/nrf51/nvic.h>
+#elif defined(NRF52810)
+#	include <libopencm3/nrfx/nrf52810/nvic.h>
+#elif defined(NRF52811)
+#	include <libopencm3/nrfx/nrf52811/nvic.h>
+#elif defined(NRF52832)
+#	include <libopencm3/nrfx/nrf52832/nvic.h>
+#elif defined(NRF52840)
+#	include <libopencm3/nrfx/nrf52840/nvic.h>
 
 #else
 #	warning"no interrupts defined for chipset; NVIC_IRQ_COUNT = 0"

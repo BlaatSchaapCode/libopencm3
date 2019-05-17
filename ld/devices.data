@@ -420,12 +420,12 @@ rm46l852* rm46l ROM=1280K RAM=192K
 ################################################################################
 # nRF5x
 
-nRF51*aa			nrf51	ROM=256K 	RAM=16K
-nRF51*ab			nrf51	ROM=128K 	RAM=16K
-nRF51*ac			nrf51	ROM=256K 	RAM=32K
-nRF5281*			nrf52	ROM=192K 	RAM=24K
-nRF52832??aa		nrf52	ROM=512K 	RAM=64K
-nRF52840*			nrf52	ROM=1024K 	RAM=256K
+nRF51*aa			nrf51		ROM=256K 	RAM=16K
+nRF51*ab			nrf51		ROM=128K 	RAM=16K
+nRF51*ac			nrf51		ROM=256K 	RAM=32K
+nRF5281*			nrf52nofpu	ROM=192K 	RAM=24K
+nRF52832??aa		nrf52fpu	ROM=512K 	RAM=64K
+nRF52840*			nrf52fpu	ROM=1024K 	RAM=256K
 
 ################################################################################
 # NXP/Freescale Vybrid VF6xx parts. (Cortex A5+M4 pair)
@@ -535,6 +535,7 @@ vf6xx END CPU=cortex-m4 FPU=hard-fpv4-sp-d16
 # nrfx
 
 nrf51	 END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
-nrf52	 END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m4 FPU=hard-fpv4-sp-d16
+nrf52fpu END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m4 FPU=hard-fpv4-sp-d16
+nrf52nofpu END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m4 FPU=soft
 ################################################################################
 

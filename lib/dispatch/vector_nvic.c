@@ -71,6 +71,15 @@
 
 #elif defined(NRF51)
 #		include "../nrfx/nrf51/vector_nvic.c"
+#elif defined(NRF52810)
+#		include "../nrfx/nrf52810/vector_nvic.c"
+#elif defined(NRF52811)
+#		include "../nrfx/nrf52811/vector_nvic.c"
+#elif defined(NRF52832)
+#		include "../nrfx/nrf52832/vector_nvic.c"
+#elif defined(NRF52840)
+#		include "../nrfx/nrf52840/vector_nvic.c"
+
 
 #else
 #	warning "no interrupts defined for chipset;"\

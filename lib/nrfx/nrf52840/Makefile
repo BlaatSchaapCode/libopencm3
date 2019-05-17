@@ -17,11 +17,12 @@
 ## along with this library.  If not, see <http://www.gnu.org/licenses/>.
 ##
 
-LIBNAME		= libopencm3_nrfx_nrf51
+LIBNAME		= libopencm3_nrfx_nrf52840
 SRCLIBDIR	?= ../..
 NRFXROOT ?= ${SRCLIBDIR}/../../nrfx
 CMSIS5DIR ?= ${SRCLIBDIR}/../../CMSIS_5
-FP_FLAGS	?= -mfloat-abi=soft
+FP_FLAGS	?= -mfloat-abi=hard -mfpu=fpv4-sp-d16
+
 
 PREFIX		?= arm-none-eabi
 
@@ -31,9 +32,10 @@ TGT_CFLAGS	= -Os \
 		  -Wall -Wextra -Wimplicit-function-declaration \
 		  -Wredundant-decls -Wno-missing-prototypes -Wno-strict-prototypes \
 		  -Wundef -Wshadow -fno-common -Wno-undef\
-		  -mcpu=cortex-m0 $(FP_FLAGS) -mthumb -Wstrict-prototypes \
-		  -ffunction-sections -fdata-sections -MD -DNRFX -DNRF51 \
-		  -I../../../include  -I../../../include/libopencm3/nrfx/nrf51 \
+		  -mcpu=cortex-m4 $(FP_FLAGS) -mthumb -Wstrict-prototypes \
+		  -ffunction-sections -fdata-sections -MD \
+		  -DNRFX -DNRF52_SERIES -DNRF52840 -DNRF52840_XXAA \
+		  -I../../../include  -I../../../include/libopencm3/nrfx/nrf52840 \
 		  -I../../../include/libopencm3/nrfx/common -I${NRFXROOT} \
 		  -I${NRFXROOT}/hal -I${NRFXROOT}/drivers/include -I${NRFXROOT}/mdk \
 		  -I${NRFXROOT}/soc -I${CMSIS5DIR}/CMSIS/Core/Include 
@@ -46,7 +48,7 @@ TGT_CFLAGS	+= $(STANDARD_FLAGS)
 # ARFLAGS	= rcsv
 ARFLAGS		= rcs
 OBJS		= \
-    system_nrf51.o\
+    system_nrf52840.o\
 	nrfx_adc.o\
 	nrfx_clock.o\
 	nrfx_comp.o\
@@ -82,7 +84,7 @@ OBJS		= \
 	nrf_ecb.o\
 	nrf_nvmc.o\
 	nrfx_atomic.o\
-	system_nrf51.o\
+
 
 
 

@@ -42,6 +42,9 @@ extern "C" {
 #endif
 
 
+#include "nrfx_coredep.h"
+#include "nrfx_atomic.h"
+#include <assert.h>
 
 
 /**
@@ -61,9 +64,6 @@ extern "C" {
 
 //------------------------------------------------------------------------------
 
-
-// Using standard C assert
-#include <assert.h>
 
 /**
  * @brief Macro for placing a runtime assertion.
@@ -178,7 +178,7 @@ extern "C" {
  *
  * @return Previous value of the atomic object.
  */
-//#define NRFX_ATOMIC_FETCH_STORE(p_data, value)
+#define NRFX_ATOMIC_FETCH_STORE(p_data, value) nrfx_atomic_u32_fetch_store(p_data, value)
 
 /**
  * @brief Macro for running a bitwise OR operation on an atomic object and returning its previous value.
@@ -188,7 +188,7 @@ extern "C" {
  *
  * @return Previous value of the atomic object.
  */
-//#define NRFX_ATOMIC_FETCH_OR(p_data, value)
+#define NRFX_ATOMIC_FETCH_OR(p_data, value) nrfx_atomic_u32_fetch_or(p_data, value)
 
 /**
  * @brief Macro for running a bitwise AND operation on an atomic object
@@ -199,7 +199,7 @@ extern "C" {
  *
  * @return Previous value of the atomic object.
  */
-//#define NRFX_ATOMIC_FETCH_AND(p_data, value)
+#define NRFX_ATOMIC_FETCH_AND(p_data, value) nrfx_atomic_u32_fetch_and(p_data, value)
 
 /**
  * @brief Macro for running a bitwise XOR operation on an atomic object
@@ -210,7 +210,7 @@ extern "C" {
  *
  * @return Previous value of the atomic object.
  */
-//#define NRFX_ATOMIC_FETCH_XOR(p_data, value)
+#define NRFX_ATOMIC_FETCH_XOR(p_data, value) nrfx_atomic_u32_fetch_xor(p_data, value)
 
 /**
  * @brief Macro for running an addition operation on an atomic object
@@ -221,7 +221,7 @@ extern "C" {
  *
  * @return Previous value of the atomic object.
  */
-//#define NRFX_ATOMIC_FETCH_ADD(p_data, value)
+#define NRFX_ATOMIC_FETCH_ADD(p_data, value) nrfx_atomic_u32_fetch_add(p_data, value)
 
 /**
  * @brief Macro for running a subtraction operation on an atomic object
@@ -232,7 +232,7 @@ extern "C" {
  *
  * @return Previous value of the atomic object.
  */
-//#define NRFX_ATOMIC_FETCH_SUB(p_data, value)
+#define NRFX_ATOMIC_FETCH_SUB(p_data, value) nrfx_atomic_u32_fetch_sub(p_data, value) 
 
 //------------------------------------------------------------------------------
 
