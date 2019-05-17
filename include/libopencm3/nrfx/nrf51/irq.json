@@ -1,0 +1,32 @@
+{
+    "irqs": {
+		"0":"power_clock",
+	    "1":"radio",
+		"2" :"uart0",
+		"3" :"spi0_twi0",
+		"4" : "spi1_twi1",
+		"6" : "gpiote",
+		"7" : "adc",
+		"8" : "timer0",
+		"9" : "timer1",
+		"10" : "timer2",
+		"11" : "rtc0",
+		"12" : "temp",
+		"13" : "rng",
+		"14" :  "ecb",
+		"15" : "ccm_aar",
+		"16" : "wdt",
+		"17" : "rtc1",
+		"18" : "qdec",
+		"29" : "lpcomp",
+		"20" : "swi0",
+		"21" : "swi1",
+		"22" : "swi2",
+		"23" : "swi3",
+		"24" : "swi4",
+		"25" : "swi5"
+    }, 
+    "partname_humanreadable": "nRF51", 
+    "partname_doxygen": "nRF51", 
+    "includeguard": "LIBOPENCM3_NRF51_NVIC_H"
+}

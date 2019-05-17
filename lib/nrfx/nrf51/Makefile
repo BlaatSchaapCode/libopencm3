@@ -19,7 +19,7 @@
 
 LIBNAME		= libopencm3_nrfx_nrf51
 SRCLIBDIR	?= ../..
-NRFXDIR ?= ${SRCLIBDIR}/../../nrfx
+NRFXROOT ?= ${SRCLIBDIR}/../../nrfx
 CMSIS5DIR ?= ${SRCLIBDIR}/../../CMSIS_5
 
 PREFIX		?= arm-none-eabi
@@ -29,22 +29,23 @@ AR		= $(PREFIX)-ar
 TGT_CFLAGS	= -Os \
 		  -Wall -Wextra -Wimplicit-function-declaration \
 		  -Wredundant-decls -Wmissing-prototypes -Wstrict-prototypes \
-		  -Wundef -Wshadow -fno-common \
+		  -Wundef -Wshadow -fno-common -Wno-undef\
 		  -mcpu=cortex-m0 $(FP_FLAGS) -mthumb -Wstrict-prototypes \
-		  -ffunction-sections -fdata-sections -MD -DNRF51 \
+		  -ffunction-sections -fdata-sections -MD -DNRFX -DNRF51 \
 		  -I../../../include  -I../../../include/libopencm3/nrfx/nrf51 \
-		  -I../../../include/libopencm3/nrfx/common -I${NRFXDIR} \
-		  -I${NRFXDIR}/hal -I${NRFXDIR}/drivers/include -I${NRFXDIR}/mdk \
-		  -I${CMSIS5DIR}/CMSIS/Core/Include
+		  -I../../../include/libopencm3/nrfx/common -I${NRFXROOT} \
+		  -I${NRFXROOT}/hal -I${NRFXROOT}/drivers/include -I${NRFXROOT}/mdk \
+		  -I${CMSIS5DIR}/CMSIS/Core/Include 
 
 
 TGT_CFLAGS      += $(DEBUG_FLAGS)
 TGT_CFLAGS	+= $(STANDARD_FLAGS)
-TGT_CFLAGS      += $(DEBUG_FLAGS)
-TGT_CFLAGS	+= $(STANDARD_FLAGS)
+
+
 # ARFLAGS	= rcsv
 ARFLAGS		= rcs
 OBJS		= \
+    system_nrf51.o\
 	nrfx_adc.o\
 	nrfx_clock.o\
 	nrfx_comp.o\
@@ -77,9 +78,14 @@ OBJS		= \
 	nrfx_uarte.o\
 	nrfx_usbd.o\
 	nrfx_wdt.o\
+	nrf_ecb.o\
+	nrf_nvmc.o\
+	nrfx_atomic.o\
+	system_nrf51.o\
 
 
-VPATH += ../../cm3:../common:${NRFXDIR}/hal:${NRFXDIR}/drivers/src
+
+VPATH += ../../cm3:../common:${NRFXROOT}/hal:${NRFXROOT}/drivers/src:${NRFXROOT}/mdk:${NRFXROOT}/soc
 
 include ../../Makefile.include
 
