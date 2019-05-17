@@ -88,6 +88,7 @@ OBJS		= \
 
 
 
+
 VPATH += ../../cm3:../common:${NRFXROOT}/hal:${NRFXROOT}/drivers/src:${NRFXROOT}/mdk:${NRFXROOT}/soc
 
 include ../../Makefile.include

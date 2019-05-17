@@ -82,7 +82,8 @@ OBJS		= \
 	nrf_ecb.o\
 	nrf_nvmc.o\
 	nrfx_atomic.o\
-	system_nrf51.o\
+
+
 
 
 
