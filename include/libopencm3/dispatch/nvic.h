@@ -73,6 +73,9 @@
 #elif defined(VF6XX)
 #	include <libopencm3/vf6xx/nvic.h>
 
+#elif defined(PSOC4100)
+#	include <libopencm3/psoc/4100/nvic.h>
+
 #else
 #	warning"no interrupts defined for chipset; NVIC_IRQ_COUNT = 0"
 

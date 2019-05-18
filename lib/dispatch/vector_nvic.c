@@ -69,6 +69,11 @@
 #elif defined(MSP432E4)
 #       include "../msp432/e4/vector_nvic.c"
 
+
+#elif defined(PSOC4100)
+#	include "../psoc/4100/vector_nvic.c"
+
+
 #else
 #	warning "no interrupts defined for chipset;"\
 	"not allocating space in the vector table"
