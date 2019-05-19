@@ -73,8 +73,31 @@
 #elif defined(VF6XX)
 #	include <libopencm3/vf6xx/nvic.h>
 
-#elif defined(PSOC4100)
-#	include <libopencm3/psoc/4100/nvic.h>
+#elif defined(PSOC41)
+#	include <libopencm3/psoc/41/nvic.h>
+#elif  defined(PSOC4A)
+#	include <libopencm3/psoc/4a/nvic.h> 
+#elif  defined(PSOC41PS)
+#	include <libopencm3/psoc/41ps/nvic.h> 
+#elif  defined(PSOC41S)
+#	include <libopencm3/psoc/41s/nvic.h> 
+#elif  defined(PSOC41SP)
+#	include <libopencm3/psoc/41sp/nvic.h> 
+#elif  defined(PSOC40S)
+#	include <libopencm3/psoc/40s/nvic.h> 
+#elif  defined(PSOC4L)
+#	include <libopencm3/psoc/4l/nvic.h>
+#elif  defined(PSOC4M)
+#	include <libopencm3/psoc/4m/nvic.h>
+#elif  defined(PSOC4BL)
+#	include <libopencm3/psoc/4bl/nvic.h>
+#elif  defined(PSOC41)
+#	include <libopencm3/psoc/41/nvic.h>
+#elif  defined(PSOC40)
+#	include <libopencm3/psoc/40/nvic.h>
+#elif  defined(PSOC5)
+
+
 
 #else
 #	warning"no interrupts defined for chipset; NVIC_IRQ_COUNT = 0"

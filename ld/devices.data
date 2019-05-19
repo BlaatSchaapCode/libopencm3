@@ -555,19 +555,19 @@ vf6xx END CPU=cortex-m4 FPU=hard-fpv4-sp-d16
 cy8c4a?5*				psoc4a  ROM=32K RAM=4K
 
 # PSoC 4100PS Series
-cy8c41??5-ps*			psoc4100ps	ROM=32k RAM=4k
+cy8c41??5-ps*			psoc41ps	ROM=32k RAM=4k
 
 # 4100 S Plus
-cy8c41?6???-s4[4567]?	psoc4100s ROM=64k RAM=8k
-cy8c41?7???-s4[4567]?	psoc4100s ROM=128k RAM=16k
+cy8c41?6???-s4[4567]?	psoc41s ROM=64k RAM=8k
+cy8c41?7???-s4[4567]?	psoc41s ROM=128k RAM=16k
 
 # 4100 S
-cy8c41?6???-s4[0123]?	psoc4100sp ROM=64k RAM=8k
-cy8c41?7???-s4[0123]?	psoc4100sp ROM=128k RAM=16k
+cy8c41?6???-s4[0123]?	psoc41sp ROM=64k RAM=8k
+cy8c41?7???-s4[0123]?	psoc41sp ROM=128k RAM=16k
 
 # 4000 S
-cy8c40?4???-s*			psoc4000s ROM=16K RAM=4K 
-cy8c40?5???-s*			psoc4000s ROM=32K RAM=4K
+cy8c40?4???-s*			psoc40s ROM=16K RAM=4K 
+cy8c40?5???-s*			psoc40s ROM=32K RAM=4K
 
 # 4L
 cy8c4??6???-l*			psoc4l	ROM=64k RAM=8k
@@ -585,12 +585,12 @@ cy8c4??8???-bl*			psoc4bl	ROM=256k RAM=32k
 
 # PSoc 4100/4200 Series
 # We need to do this series last, when no other rules matched
-cy8c4[12]?4* 			psoc4100 ROM=16K RAM=4K 
-cy8c4[12]?5* 			psoc4100 ROM=32K RAM=4K
+cy8c4[12]?4* 			psoc41 ROM=16K RAM=4K 
+cy8c4[12]?5* 			psoc41 ROM=32K RAM=4K
 
 #PSoc 4000
-cy8c40?3* 				psoc4000 ROM=8K RAM=2K 
-cy8c40?4* 				psoc4000 ROM=16K RAM=2K
+cy8c40?3* 				psoc40 ROM=8K RAM=2K 
+cy8c40?4* 				psoc40 ROM=16K RAM=2K
 
 #PSoC 5
 cy8c5??6* 				psoc5 	ROM=64k RAM=8k
@@ -600,14 +600,14 @@ cy8c5??8* 				psoc5 	ROM=256k RAM=32k
 
 
 psoc4a		END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
-psoc4100ps 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
-psoc4100s 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
-psoc4100sp 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
-psoc4000s 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
+psoc41ps 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
+psoc41s 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
+psoc41sp 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
+psoc40s 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0+ FPU=soft
 psoc4l	 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
 psoc4m	 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
 psoc4bl	 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
-psoc4100 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
-psoc4000 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
+psoc41	 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
+psoc40	 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m0 FPU=soft
 psoc5	 	END ROM_OFF=0x00000000 RAM_OFF=0x20000000 CPU=cortex-m3 FPU=soft
 

@@ -70,8 +70,31 @@
 #       include "../msp432/e4/vector_nvic.c"
 
 
-#elif defined(PSOC4100)
-#	include "../psoc/4100/vector_nvic.c"
+#elif defined(PSOC41)
+#	include "../psoc/41/vector_nvic.c"
+#elif  defined(PSOC4A)
+#	include"../psoc/4a/vector_nvic.c" 
+#elif  defined(PSOC41PS)
+#	include"../psoc/41ps/vector_nvic.c" 
+#elif  defined(PSOC41S)
+#	include"../psoc/41s/vector_nvic.c" 
+#elif  defined(PSOC41SP)
+#	include"../psoc/41sp/vector_nvic.c" 
+#elif  defined(PSOC40S)
+#	include"../psoc/40s/vector_nvic.c" 
+#elif  defined(PSOC4L)
+#	include"../psoc/4l/vector_nvic.c"
+#elif  defined(PSOC4M)
+#	include"../psoc/4m/vector_nvic.c"
+#elif  defined(PSOC4BL)
+#	include"../psoc/4bl/vector_nvic.c"
+#elif  defined(PSOC41)
+#	include"../psoc/41/vector_nvic.c"
+#elif  defined(PSOC40)
+#	include"../psoc/40/vector_nvic.c"
+#elif  defined(PSOC5)
+#	include"../psoc/5/vector_nvic.c"
+
 
 
 #else

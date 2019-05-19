@@ -30,17 +30,11 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LIBOPENCM3_SCB_H
-#define LIBOPENCM3_SCB_H
+#ifndef LIBOPENCM3_COMMON_SCB_H
+#define LIBOPENCM3_COMMON_SCB_H
 
 #include <libopencm3/cm3/common.h>
 #include "memorymap.h"
-
-#define SCB0_BASE				(SERCOM_BASE)
-#define SCB1_BASE				(SERCOM_BASE)
-
-0x40060000
-0x40070000
 
 #define SCB_CTRL				MMIO32((scb_block) + 0x0000)
 #define SCB_STATUS				MMIO32((scb_block) + 0x0004)

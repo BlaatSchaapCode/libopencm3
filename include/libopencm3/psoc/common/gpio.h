@@ -30,11 +30,10 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LIBOPENCM3_GPIO_H
-#define LIBOPENCM3_GPIO_H
+#ifndef LIBOPENCM3_COMMON_GPIO_H
+#define LIBOPENCM3_COMMON_GPIO_H
 
 #include <libopencm3/cm3/common.h>
-#include "memorymap.h"
 
 #define GPIO_DR(port)			MMIO32((port) + 0x00)
 #define GPIO_PS(port)			MMIO32((port) + 0x04)
