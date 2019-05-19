@@ -522,12 +522,80 @@ vf6xx END CPU=cortex-m4 FPU=hard-fpv4-sp-d16
 ################################################################################
 # PSoC4
 
-cy8c4124* psoc4100 ROM=16K RAM=4K 
-cy8c4125* psoc4100 ROM=32K RAM=4K
-cy8c4244* psoc4200 ROM=16K RAM=4K 
-cy8c4245* psoc4200 ROM=32K RAM=4K
+# In the "PSoC 4 Interrupts (AN90799) we have interrupts for a number of
+# PSoC4 families. They appear not to be a subset/superset, so it seems we need
+# to define these families to determine the correct irq mapping
+# We got the following families from this document
+# * PSoC 4000
+# * PSoC 4100/4200
+# * PSoC 4BLE
+# * PSoC 4M
+# * PSoC 4L
+# * PSoC 4000S
+# * PSoC 4100S
+# * PSoC 4100S Plus
+# * PSoC 4100PS
+#
+# Furthermore, we have the PSoC 4 Analog Coprocessor series
 
-psoc4200 psoc4100
+# Type numbers:
+# cy8c - prefix
+#     x - series [1,2,a] 4100, 4200, analog coprocessor
+#      y - speed 2 =24 Mhz, 4 = 48 Mhz
+#       z - memory (rom,ram), 5=32,4  6 =64,8  7=128,16, 8 = 256,32
+#        ???- - package
+#            [MS]
+#			  ??? Attribute codes	 
+
+# To differentiate between 4100S and 4100S Plus we need to look at the 
+# attribute codes. Looking at the datasheets ordering information, the pattern
+# seems to be -S4[0123]? -> S  -S4[4567] -> S Plus
+
+# PSoC Analog Coprocessor Series
+cy8c4a?5*				psoc4a  ROM=32K RAM=4K
+
+# PSoC 4100PS Series
+cy8c41??5-ps*			psoc4100ps	ROM=32k RAM=4k
+
+# 4100 S Plus
+cy8c41?6???-s4[4567]?	psoc4100s ROM=64k RAM=8k
+cy8c41?7???-s4[4567]?	psoc4100s ROM=128k RAM=16k
+
+# 4100 S
+cy8c41?6???-s4[0123]?	psoc4100splus ROM=64k RAM=8k
+cy8c41?7???-s4[0123]?	psoc4100splus ROM=128k RAM=16k
+
+# 4000 S
+cy8c40?4???-s*			psoc4000s ROM=16K RAM=4K 
+cy8c40?5???-s*			psoc4000s ROM=32K RAM=4K
+
+# 4L
+cy8c4??6???-l*			psoc4l	ROM=64k RAM=8k
+cy8c4??7???-l*			psoc4l	ROM=128k RAM=16k
+cy8c4??8???-l*			psoc4l	ROM=256k RAM=32k
+
+# PSoC 4M Series
+cy8c4??5???-m*			psoc4m	ROM=32k RAM=4k
+cy8c4??6???-m*			psoc4m	ROM=64k RAM=8k
+cy8c4??7???-m*			psoc4m	ROM=128k RAM=16k
+
+# PSoc 4BLE
+cy8c4??7???-bl*			psoc4bl	ROM=128k RAM=16k
+cy8c4??8???-bl*			psoc4bl	ROM=256k RAM=32k
+
+# PSoc 4100/4200 Series
+# We need to do this series last, when no other rules matched
+cy8c4[12]?4* 			psoc4100 ROM=16K RAM=4K 
+cy8c4[12]?5* 			psoc4100 ROM=32K RAM=4K
+
+#PSoc 4000
+cy8c40?3* 				psoc4000 ROM=8K RAM=2K 
+cy8c40?4* 				psoc4000 ROM=16K RAM=2K
+
+#PSoC 5
+cy8c5??6* 				psoc5 	ROM=64k RAM=8k
+cy8c5??7* 				psoc5 	ROM=128k RAM=16k
+cy8c5??8* 				psoc5 	ROM=256k RAM=32k
 
 
 
