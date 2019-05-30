@@ -32,25 +32,38 @@
 	
 // TODO copied the memory map of 41, need to verify and update for 4m			
 /*			 
-#define CPUSS_BASE				(PERIPH_BASE + 0x000000)
+
 #define HSIOM_BASE				(PERIPH_BASE + 0x010000)
 
 #define CLK_BASE				(PERIPH_BASE + 0x020000)
 */
-#define GPIO_BASE				(PERIPH_BASE + 0x040000)	// matches 41
-/*
-#define TCPWM_BASE				(PERIPH_BASE + 0x050000)
-#define SCB0_BASE	 			(PERIPH_BASE + 0x060000)
-#define SCB1_BASE	 			(PERIPH_BASE + 0x070000)
+#define CPUSS_BASE				(PERIPH_BASE + 0x000000)
+#define GPIO_BASE				(PERIPH_BASE + 0x040000)	
 #define CSD_BASE				(PERIPH_BASE + 0x080000)
-#define LCD_BASE 				(PERIPH_BASE + 0x090000)
-#define LPCOMP_BASE				(PERIPH_BASE + 0x0A0000)
-#define CTBM_BASE				(PERIPH_BASE + 0x100000)
-#define SAR_BASE 				(PERIPH_BASE + 0x1A0000)
-#define SRSS_BASE				(PERIPH_BASE + 0x0B0000)
-#define UDB_BASE 				(PERIPH_BASE + 0x0F8000)
+#define CTBM_BASE				(PERIPH_BASE + 0x300000)
+#define DMAC_BASE				(PERIPH_BASE + 0x101000)
+// DSAB
+#define DSI_BASE				(PERIPH_BASE + 0xF4000)
+// HSIOM
+#define LCD_BASE 				(PERIPH_BASE + 0x2A0000)
+#define LPCOMP_BASE				(PERIPH_BASE + 0x2B0000)
+//PA
+//PASS MMIO
+//PERI
+//ROUTE == 
+#define SAR_BASE 				(PERIPH_BASE + 0x3A0000)
+#define SCB0_BASE	 			(PERIPH_BASE + 0x240000)
+#define SCB1_BASE	 			(PERIPH_BASE + 0x250000)
+#define SCB2_BASE	 			(PERIPH_BASE + 0x260000)
+#define SCB3_BASE	 			(PERIPH_BASE + 0x270000)
+//SFLASH
+//SPCIF
+#define TCPWM_BASE				(PERIPH_BASE + 0x200000)
+//UDB
+//...
 
-*/
+#define SRSS_BASE                (PERIPH_BASE + 0xB0000)
+
 
 #define GPIO_PORT_0_BASE		(GPIO_BASE + 0x000)
 #define GPIO_PORT_1_BASE		(GPIO_BASE + 0x100)
