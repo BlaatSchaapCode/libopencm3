@@ -35,6 +35,12 @@
 
 #include <libopencm3/cm3/common.h>
 
+
+// TODO: See if/where there are differences in SFLASH between versions
+// See for example 4000, which has SRSS-Lite, having SFLASH_IMO_TCTRIM_LT0 values
+
+
+
 // There are the values required for the clocking mechanism
 // Todo: add all the other values
 // Looking at the initial revision of the 4100/4200 TRM as they're removed

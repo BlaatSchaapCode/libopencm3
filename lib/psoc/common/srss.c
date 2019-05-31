@@ -24,6 +24,7 @@
  */
 
 #include <libopencm3/psoc/srss.h>
+#include <libopencm3/psoc/cpuss.h>
 
 #define asm __asm__
 
@@ -87,9 +88,20 @@ int srss_set_imo_mhz(int new_freq_mhz) {
         if (new_freq_mhz > 24) 
             SRSS_CLK_SELECT |= SRSS_CLK_SELECT_HALF_EN;
 
-        // 4M test
-        if (new_freq_mhz > 24)
-        	(*(uint32_t*)(0x40100030)) |= 2;
+#ifdef CPUSS_FLASH_CTL  // CPUSSv2, we need to set the WAIT TIME here too
+
+        if (new_freq_mhz > 32)
+        	CPUSS_FLASH_CTL = (CPUSS_FLASH_CTL & ~0x03) | 0x02;
+        else if (new_freq_mhz > 16)
+        	CPUSS_FLASH_CTL = (CPUSS_FLASH_CTL & ~0x03) | 0x01;
+        else CPUSS_FLASH_CTL = (CPUSS_FLASH_CTL & ~0x03);
+
+        // The TRM says:  	fast flash: 0-24 MHz:0 WS, 		24-48 MHz:1 WS
+        //					slow flash: 0-16 MHz:0 WS, 		16-32 MHz:1 WS, 32-48 MHz:2 WS
+        // But which family uses slow flash and which uses fast flash?
+        // Appearently we have slow flash. Using the fast setting will cause a crash
+
+#endif
 
 
 		if (new_freq_mhz < 13)
@@ -106,16 +118,7 @@ int srss_set_imo_mhz(int new_freq_mhz) {
 		for (volatile int i = 0; i < 5 * new_freq_mhz; i++)
 			asm("mov r0,r0");
 
-        if (new_freq_mhz <= 24) 
-            SRSS_CLK_SELECT &= ~SRSS_CLK_SELECT_HALF_EN;       
-
 	} else {
-        if (new_freq_mhz > 24) 
-            SRSS_CLK_SELECT |= SRSS_CLK_SELECT_HALF_EN;      
-
-
-        if (new_freq_mhz > 24)
-                	(*(uint32_t*)(0x40100030)) |= 2;
 
 		if (new_freq_mhz < 13)
 			SRSS_CLK_IMO_TRIM2 = new_freq_mhz;
@@ -136,7 +139,23 @@ int srss_set_imo_mhz(int new_freq_mhz) {
         if (new_freq_mhz <= 24) 
             SRSS_CLK_SELECT &= ~SRSS_CLK_SELECT_HALF_EN;       
 
+#ifdef CPUSS_FLASH_CTL  // CPUSSv2, we need to set the WAIT TIME here too
+
+        if (new_freq_mhz > 32)
+        	CPUSS_FLASH_CTL = (CPUSS_FLASH_CTL & ~0x03) | 0x02;
+        else if (new_freq_mhz > 16)
+        	CPUSS_FLASH_CTL = (CPUSS_FLASH_CTL & ~0x03) | 0x01;
+        else CPUSS_FLASH_CTL = (CPUSS_FLASH_CTL & ~0x03);
+
+        // The TRM says:  	fast flash: 0-24 MHz:0 WS, 		24-48 MHz:1 WS
+        //					slow flash: 0-16 MHz:0 WS, 		16-32 MHz:1 WS, 32-48 MHz:2 WS
+        // But which family uses slow flash and which uses fast flash?
+        // Appearently we have slow flash. Using the fast setting will cause a crash
+
+#endif
+
+
 
 	}
-
+	return 0;
 }

@@ -34,7 +34,7 @@
 #define LIBOPENCM3_4M_SRS_H
 
 
+#include "../common/srss_v2.h"
 #include "memorymap.h"
-#include "../common/srss.h"
 
 #endif

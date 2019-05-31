@@ -1,6 +1,6 @@
-/** @defgroup gpio_defines SRS Defines
+/** @defgroup cpuss_defines SRS Defines
  *
- * @brief <b>Defined Constants and Types for the PSoC4 System Resources Subsystem</b>
+ * @brief <b>Dispatcher for the PSoC4 System Resources Subsystem</b>
  *
  * @ingroup PSoC4_defines
  *
@@ -30,12 +30,34 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LIBOPENCM3_41_SRS_H
-#define LIBOPENCM3_41_SRS_H
+#ifndef LIBOPENCM3_cpuss_H
+#define LIBOPENCM3_cpuss_H
 
 
-#include "../common/srss_v2.h"
-#include "memorymap.h"
+
+#if defined PSOC4A
+#include	"4a/cpuss.h"
+#elif  defined PSOC41PS
+#include	"41ps/cpuss.h"
+#elif  defined PSOC41S
+#include	"41s/cpuss.h"
+#elif  defined PSOC41SP
+#include	"41sp/cpuss.h"
+#elif  defined PSOC40S
+#include	"40s/cpuss.h"
+#elif  defined PSOC4L
+#include	"4l/cpuss.h"
+#elif  defined PSOC4M
+#include	"4m/cpuss.h"
+#elif  defined PSOC4BL
+#include	"4bl/cpuss.h"
+#elif  defined PSOC41
+#include	"41/cpuss.h"
+#elif  defined PSOC40
+#include	"40/cpuss.h"
+#else
+#error "PSoC Family not defined!"
+#endif
 
 
 
