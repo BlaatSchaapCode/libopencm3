@@ -34,7 +34,7 @@
 #define LIBOPENCM3_COMMON_SCB_H
 
 #include <libopencm3/cm3/common.h>
-#include "memorymap.h"
+
 
 #define SCB_CTRL(scb_block)				MMIO32((scb_block) + 0x0000)
 #define SCB_STATUS(scb_block)				MMIO32((scb_block) + 0x0004)
@@ -110,9 +110,7 @@ BEGIN_DECLS
 // We may have to implement clock control first
 
 
-void scb_set_mode(uint8_t mode);
-void scb_enable(void);
-void scb_disable(void);
+
 
 // SPI 
 void scb_spi_set_master(void);
@@ -143,8 +141,10 @@ void scb_i2c_disable_slave(void);
 void scb_i2c_is_busy(void);
 
 // All
-void scb_enable();
-void scb_disable();
+void scb_set_mode(uint8_t mode);
+
+void scb_enable(void);
+void scb_disable(void);
 void scb_msb_first(bool msb_first);
 void scb_set_data_width(uint8_t data_width);
 //void scb_rx_set_buffer_read(uint8_t read_pos);

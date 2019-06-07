@@ -30,8 +30,8 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LIBOPENCM3_SCB_H
-#define LIBOPENCM3_SCB_H
+#ifndef LIBOPENCM3_PSOC41_SCB_H
+#define LIBOPENCM3_PSOC41_SCB_H
 
 #include <libopencm3/cm3/common.h>
 #include "memorymap.h"
