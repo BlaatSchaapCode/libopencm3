@@ -38,7 +38,7 @@ TGT_CFLAGS	+= $(STANDARD_FLAGS)
 
 ARFLAGS		= rcs
 
-OBJS		= gpio.o srss.o
+OBJS		= gpio.o srss.o peri.o scb.o hsiom.o
 
 VPATH += ../:../common:../../cm3:../../common
 
