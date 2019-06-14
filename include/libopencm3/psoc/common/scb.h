@@ -14,12 +14,12 @@
 /*
  * This file is part of the libopencm3 project.
  *
- * Copyright (C) 2019 André van Schoubroeck <andre@philosopher.it>
+ * Copyright (uint32_t scb_block, C) 2019 André van Schoubroeck <andre@philosopher.it>
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * (uint32_t scb_block, at your option) any later version.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -30,11 +30,10 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LIBOPENCM3_COMMON_SCB_H
-#define LIBOPENCM3_COMMON_SCB_H
+#ifndef LIBOPENCM3_PSOC4_COMMON_SCB_H
+#define LIBOPENCM3_PSOC4_COMMON_SCB_H
 
 #include <libopencm3/cm3/common.h>
-
 
 #define SCB_CTRL(scb_block)				MMIO32((scb_block) + 0x0000)
 #define SCB_STATUS(scb_block)				MMIO32((scb_block) + 0x0004)
@@ -100,8 +99,11 @@
 #define SCB_UART_CTRL_MODE_IRDA			(0x2)
 #define SCB_UART_CTRL_MODE_DEFAULT		(0x3)
 
-/* --- Function prototypes ------------------------------------------------- */
+#define SCB_UART_PARITY_NONE	(0b00)
+#define SCB_UART_PARITY_EVEN	(0b10)
+#define SCB_UART_PARITY_ODD		(0b11)
 
+/* --- Function prototypes ------------------------------------------------- */
 
 BEGIN_DECLS
 
@@ -109,54 +111,48 @@ BEGIN_DECLS
 // TODO: Where to set the speed??
 // We may have to implement clock control first
 
-
-
-
 // SPI 
-void scb_spi_set_master(void);
-void scb_spi_set_slave(uint8_t slave_select);
-void scb_spi_set_mode(uint8_t submode);
-void scb_spi_set_continuous(bool continuous);
-void scb_spi_is_busy(void);
+void scb_spi_set_master(uint32_t scb_block);
+void scb_spi_set_slave(uint32_t scb_block, uint8_t slave_select);
+void scb_spi_set_mode(uint32_t scb_block, uint8_t submode);
+void scb_spi_set_continuous(uint32_t scb_block, bool continuous);
+void scb_spi_is_busy(uint32_t scb_block);
 
 // SPI In Motorola mode
-void scb_spi_set_cpol(uint8_t cpol);
-void scb_spi_set_cpha(uint8_t cpha);
-void scb_spi_set_spimode(uint8_t spimode); // Convinience for setting cpol/cpha
+void scb_spi_set_cpol(uint32_t scb_block, uint8_t cpol);
+void scb_spi_set_cpha(uint32_t scb_block, uint8_t cpha);
+void scb_spi_set_spimode(uint32_t scb_block, uint8_t spimode); // Convinience for setting cpol/cpha
 
 // SPI In Texas Instruments mode
-void scb_spi_set_select_precede (bool select_precede);
+void scb_spi_set_select_precede(uint32_t scb_block, bool select_precede);
 
 // UART
-void scb_uart_set_mode(uint8_t uart_mode);
-void scb_uart_set_parity(uint8_t parity);
-void scb_uart_set_stop_bits(uint8_t stop_bits);
-void scb_uart_set_break_width(uint8_t break_width);
+void scb_uart_set_mode(uint32_t scb_block, uint8_t uart_mode);
+void scb_uart_set_parity(uint32_t scb_block, uint8_t parity);
+void scb_uart_set_stop_bits(uint32_t scb_block, uint8_t stop_bits);
+void scb_uart_set_break_width(uint32_t scb_block, uint8_t break_width);
 
 // I2C
-void scb_i2c_enable_master(void);
-void scb_i2c_enable_slave(void);
-void scb_i2c_disable_master(void);
-void scb_i2c_disable_slave(void);
-void scb_i2c_is_busy(void);
+void scb_i2c_enable_master(uint32_t scb_block);
+void scb_i2c_enable_slave(uint32_t scb_block);
+void scb_i2c_disable_master(uint32_t scb_block);
+void scb_i2c_disable_slave(uint32_t scb_block);
+void scb_i2c_is_busy(uint32_t scb_block);
 
 // All
-void scb_set_mode(uint8_t mode);
+void scb_set_mode(uint32_t scb_block, uint8_t mode);
 
-void scb_enable(void);
-void scb_disable(void);
-void scb_msb_first(bool msb_first);
-void scb_set_data_width(uint8_t data_width);
-//void scb_rx_set_buffer_read(uint8_t read_pos);
-//uint8_t scb_rx_get_buffer_write(void);
-//void scb_tx_set_buffer_write(uint8_t write_pos);
-//uint8_t scb_tx_get_buffer_read(void);
-bool scb_has_data(void);
-uint16_t scb_read(void);
-void scb_write(uint16_t data);
-void scb_set_slave_address(uint8_t address, uint8_t mask);
+void scb_enable(uint32_t scb_block);
+void scb_disable(uint32_t scb_block);
+void scb_set_msb_first(uint32_t scb_block, bool msb_first);
+void scb_set_data_width(uint32_t scb_block, uint8_t data_width);
+void scb_set_oversampling(uint32_t scb_block, uint8_t oversamping);
 
+bool scb_has_data(uint32_t scb_block);
+uint16_t scb_read(uint32_t scb_block);
+void scb_write(uint32_t scb_block, uint16_t data);
 
+void scb_set_slave_address(uint32_t scb_block, uint8_t address, uint8_t mask);
 
 END_DECLS
 
