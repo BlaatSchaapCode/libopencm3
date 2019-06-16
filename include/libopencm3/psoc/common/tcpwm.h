@@ -71,6 +71,8 @@ void tcpwm_set_up_down_mode(uint32_t tcpwm_peripheral, uint8_t up_down_mode);
 void tcpwm_set_quadrature_mode(uint32_t tcpwm_peripheral, uint8_t quadrature_mode);
 void tcpwm_set_period(uint32_t tcpwm_peripheral, uint16_t);
 void tcpwm_set_cc(uint32_t tcpwm_peripheral, uint16_t);
+void tcpwm_set_period_buff(uint32_t tcpwm_peripheral, uint16_t);
+void tcpwm_set_cc_buff(uint32_t tcpwm_peripheral, uint16_t);
 
 void tcpwm_output_cc_match_mode(uint32_t tcpwm_peripheral, uint8_t);
 void tcpwm_output_overflow_mode(uint32_t tcpwm_peripheral, uint8_t);

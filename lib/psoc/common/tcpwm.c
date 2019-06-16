@@ -40,7 +40,12 @@ void tcpwm_set_period(uint32_t tcpwm_peripheral, uint16_t period) {
 void tcpwm_set_cc(uint32_t tcpwm_peripheral, uint16_t cc) {
 	TCPWM_CNT_CC (tcpwm_peripheral) = cc;
 }
-
+void tcpwm_set_period_buff(uint32_t tcpwm_peripheral, uint16_t period) {
+	TCPWM_CNT_PERIOD_BUFF (tcpwm_peripheral) = period;
+}
+void tcpwm_set_cc_buff(uint32_t tcpwm_peripheral, uint16_t cc) {
+	TCPWM_CNT_CC_BUFF (tcpwm_peripheral) = cc;
+}
 void tcpwm_output_cc_match_mode(uint32_t tcpwm_peripheral, uint8_t match_mode) {
 	TCPWM_CNT_TR_CTRL2 (tcpwm_peripheral) = (TCPWM_CNT_TR_CTRL2(
 			tcpwm_peripheral) & ~(0b11 << 0)) | ((0b11 & match_mode) << 0);
@@ -61,22 +66,22 @@ void tcpwm_disable_interrupt(uint32_t tcpwm_peripheral, uint8_t interrupts) {
 	TCPWM_CNT_INTR_MASK(tcpwm_peripheral) &= ~interrupts;
 }
 
-void tcpwm_counter_enable(uint8_t counters){
+void tcpwm_counter_enable(uint8_t counters) {
 	TCPWM_CTRL |= counters;
 }
-void tcpwm_counter_disable(uint8_t counters){
-	TCPWM_CTRL &=~ counters;
+void tcpwm_counter_disable(uint8_t counters) {
+	TCPWM_CTRL &= ~counters;
 }
-void tcpwm_counter_capture(uint8_t counters){
+void tcpwm_counter_capture(uint8_t counters) {
 	TCPWM_CMD |= counters;
 }
-void tcpwm_counter_reload(uint8_t counters){
-	TCPWM_CMD |= counters<< 8;
+void tcpwm_counter_reload(uint8_t counters) {
+	TCPWM_CMD |= counters << 8;
 }
-void tcpwm_counter_stop(uint8_t counters){
-	TCPWM_CMD |= counters<< 16;
+void tcpwm_counter_stop(uint8_t counters) {
+	TCPWM_CMD |= counters << 16;
 }
-void tcpwm_counter_start(uint8_t counters){
-	TCPWM_CMD |= counters<< 24;
+void tcpwm_counter_start(uint8_t counters) {
+	TCPWM_CMD |= counters << 24;
 }
 
