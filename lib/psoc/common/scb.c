@@ -52,9 +52,11 @@ uint16_t scb_read(uint32_t scb_block) {
 }
 
 void scb_write(uint32_t scb_block, uint16_t data) {
-	// wait until the current transmission is finished
-	while (SCB_TX_FIFO_STATUS(scb_block) & 0x111)
-		;
+	// wait until the there is room in the fifo,  value in fifo fill level
+	// ranges from 0..8 (at least on 4200). where 0 is empty and 8 is full
+	// Checking for less rather then equal to ensure it runs on models
+	// with greater fifo buffers.
+	while (!((SCB_TX_FIFO_STATUS(scb_block) & 0b1111)<8));
 	// Add the new data to the transmission fifo.
 	SCB_TX_FIFO_WR (scb_block) = data;
 }
