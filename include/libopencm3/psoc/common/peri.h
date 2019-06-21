@@ -1,8 +1,20 @@
 /*
- * peri.h
+ * This file is part of the libopencm3 project.
  *
- *  Created on: 14 jun. 2019
- *      Author: andre
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef INCLUDE_LIBOPENCM3_PSOC_COMMON_PERI_H_
@@ -94,23 +106,26 @@
 #define PERI_DIV_16_CTL14    (PERI_BASE + 0x0338)
 #define PERI_DIV_16_CTL15    (PERI_BASE + 0x033C)
 
-
 // These are the clock fractional dividers
 #define PERI_DIV_16_5_CTL0    (PERI_BASE + 0x0400)
 #define PERI_DIV_16_5_CTL1    (PERI_BASE + 0x0404)
 #define PERI_DIV_16_5_CTL2    (PERI_BASE + 0x0408)
 #define PERI_DIV_16_5_CTL3    (PERI_BASE + 0x040C)
 
-// TODO: What does this register do
 #define PERI_TR_CTL    (PERI_BASE + 0x0600)
 
 
+/* --- Function prototypes ------------------------------------------------- */
+
+BEGIN_DECLS
+
 void peri_divider_enable(uint8_t sel_div, uint8_t sel_type);
 void peri_divider_disable(uint8_t sel_div, uint8_t sel_type);
-void peri_integer_divider_disable(uint32_t divider_base);
-void peri_integer_divider_set_divisor_16(uint32_t divider16_base, uint16_t int16_div);
-void peri_integer_divider_set_frac_16_5(uint32_t divider16_5_base, uint16_t int16_div, uint8_t frac5_div);
-void peri_select_clock_peripheral(uint32_t peri_pclk_base, uint8_t sel_div, uint8_t sel_type);
+void peri_integer_divider_disable(intptr_t divider_base);
+void peri_integer_divider_set_divisor_16(intptr_t divider16_base, uint16_t int16_div);
+void peri_integer_divider_set_frac_16_5(intptr_t divider16_5_base, uint16_t int16_div, uint8_t frac5_div);
+void peri_select_clock_peripheral(intptr_t peri_pclk_base, uint8_t sel_div, uint8_t sel_type);
 
+END_DECLS
 
 #endif /* INCLUDE_LIBOPENCM3_PSOC_4M_PERI_H_ */

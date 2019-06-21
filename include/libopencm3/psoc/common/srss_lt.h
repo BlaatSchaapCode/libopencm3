@@ -1,10 +1,20 @@
 /*
- * srss_lt.h
+ * This file is part of the libopencm3 project.
  *
- *  Created on: 31 mei 2019
- *      Author: andre
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
  *
- *      SRSS-Lite as found on 4000 series
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef INCLUDE_LIBOPENCM3_PSOC_COMMON_SRSS_LT_H_

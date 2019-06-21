@@ -1,20 +1,7 @@
-/** @defgroup gpio_defines GPIO Defines
- *
- * @brief <b>Defined Constants and Types for the PSoC4 SFLASH</b>
- *
- * @ingroup PSoC4_defines
- *
- * @version 1.0.0
- *
- * @date 18 May 2019
- *
- * LGPL License Terms @ref lgpl_license
- */
-
 /*
  * This file is part of the libopencm3 project.
  *
- * Copyright (C) 2019 André van Schoubroeck <andre@philosopher.it>
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -39,15 +26,7 @@
 // TODO: See if/where there are differences in SFLASH between versions
 // See for example 4000, which has SRSS-Lite, having SFLASH_IMO_TCTRIM_LT0 values
 
-
-
 // There are the values required for the clocking mechanism
-// Todo: add all the other values
-// Looking at the initial revision of the 4100/4200 TRM as they're removed
-// in later revisions. They're also in the PSoC Analog Coprocessor TRM, and
-// it looks like they match up, so for the time being we assume they're valid
-// for all families.
-
 // The 4100M/4200M series register TRM actually mentions where to apply these
 // values, what goes where. 
 // ABS?  goes to  PWR_BG_TRIM4

@@ -1,20 +1,7 @@
-/** @defgroup srss_defines SRS Defines
- *
- * @brief <b>Dispatcher for the PSoC4 System Resources Subsystem</b>
- *
- * @ingroup PSoC4_defines
- *
- * @version 1.0.0
- *
- * @date 18 May 2019
- *
- * LGPL License Terms @ref lgpl_license
- */
-
 /*
  * This file is part of the libopencm3 project.
  *
- * Copyright (C) 2019 André van Schoubroeck <andre@philosopher.it>
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -32,8 +19,6 @@
 
 #ifndef LIBOPENCM3_SRSS_H
 #define LIBOPENCM3_SRSS_H
-
-
 
 #if defined PSOC4A
 #include	"4a/srss.h" 
@@ -55,12 +40,8 @@
 #include	"41/srss.h"
 #elif  defined PSOC40
 #include	"40/srss.h"
-#elif  defined PSOC5
-#include	"5/srss.h"
 #else
 #error "PSoC Family not defined!"
 #endif
-
-
 
 #endif

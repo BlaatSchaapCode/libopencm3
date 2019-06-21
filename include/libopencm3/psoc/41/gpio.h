@@ -1,16 +1,3 @@
-/** @defgroup gpio_defines GPIO Defines
- *
- * @brief <b>Defined Constants and Types for the PSoC4 General Purpose I/O</b>
- *
- * @ingroup PSoC4_defines
- *
- * @version 1.0.0
- *
- * @date 18 May 2019
- *
- * LGPL License Terms @ref lgpl_license
- */
-
 /*
  * This file is part of the libopencm3 project.
  *

@@ -1,9 +1,7 @@
- /*
+/*
  * This file is part of the libopencm3 project.
  *
  * Copyright (C) 2019 André van Schoubroeck <andre@philosopher.it>
- *
- *  .. based on file from STM32 F0
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by

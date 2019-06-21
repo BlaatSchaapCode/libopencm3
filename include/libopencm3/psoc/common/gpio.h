@@ -1,20 +1,7 @@
-/** @defgroup gpio_defines GPIO Defines
- *
- * @brief <b>Defined Constants and Types for the PSoC4 General Purpose I/O</b>
- *
- * @ingroup PSoC4_defines
- *
- * @version 1.0.0
- *
- * @date 18 May 2019
- *
- * LGPL License Terms @ref lgpl_license
- */
-
 /*
  * This file is part of the libopencm3 project.
  *
- * Copyright (C) 2019 André van Schoubroeck <andre@philosopher.it>
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -61,13 +48,13 @@
 
 BEGIN_DECLS
 
-void gpio_set_mode(uint32_t gpioport, uint8_t dm, uint8_t gpios);
-void gpio_set(uint32_t gpioport, uint8_t gpios);
-void gpio_clear(uint32_t gpioport, uint8_t gpios);
-uint8_t gpio_get(uint32_t gpioport, uint8_t gpios);
-void gpio_toggle(uint32_t gpioport, uint8_t gpios);
-uint8_t gpio_port_read(uint32_t gpioport);
-void gpio_port_write(uint32_t gpioport, uint8_t data);
+void gpio_set_mode(intptr_t gpioport, uint8_t dm, uint8_t gpios);
+void gpio_set(intptr_t gpioport, uint8_t gpios);
+void gpio_clear(intptr_t gpioport, uint8_t gpios);
+uint8_t gpio_get(intptr_t gpioport, uint8_t gpios);
+void gpio_toggle(intptr_t gpioport, uint8_t gpios);
+uint8_t gpio_port_read(intptr_t gpioport);
+void gpio_port_write(intptr_t gpioport, uint8_t data);
 
 END_DECLS
 

@@ -1,8 +1,7 @@
- /*
+/*
  * This file is part of the libopencm3 project.
  *
- * Copyright (C) 2019 André van Schoubroeck <andre@philosopher.it>
- *
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,8 +17,8 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LIBOPENCM3_COMMON_SRSS_H
-#define SRSS_LIBOPENCM3_COMMON_SRSS_H
+#ifndef LIBOPENCM3_COMMON_SRSSV2_H
+#define LIBOPENCM3_COMMON_SRSSV2_H
 
 #include <libopencm3/cm3/common.h>
 #include "sflash.h"

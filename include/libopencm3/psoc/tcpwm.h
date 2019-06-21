@@ -1,8 +1,20 @@
 /*
- * tcpwm.h
+ * This file is part of the libopencm3 project.
  *
- *  Created on: 16 jun. 2019
- *      Author: andre
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef INCLUDE_LIBOPENCM3_PSOC_TCPWM_H_
@@ -30,8 +42,6 @@
 #include	"41/tcpwm.h"
 #elif  defined(PSOC40)
 #include	"40/tcpwm.h"
-#elif  defined(PSOC5)
-#include	"5/tcpwm.h"
 #else
 #error "PSoC Family not defined!"
 #endif

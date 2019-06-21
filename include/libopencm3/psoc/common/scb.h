@@ -1,25 +1,12 @@
-/** @defgroup gpio_defines SCB Defines
- *
- * @brief <b>Defined Constants and Types for the PSoC4 Serial Communications Block</b>
- *
- * @ingroup PSoC4_defines
- *
- * @version 1.0.0
- *
- * @date 18 May 2019
- *
- * LGPL License Terms @ref lgpl_license
- */
-
 /*
  * This file is part of the libopencm3 project.
  *
- * Copyright (uint32_t scb_block, C) 2019 André van Schoubroeck <andre@philosopher.it>
+ * Copyright (C) 2019 André van Schoubroeck <andre@blaatschaap.be>
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
- * (uint32_t scb_block, at your option) any later version.
+ * (at your option) any later version.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -107,52 +94,48 @@
 
 BEGIN_DECLS
 
-// Declarations made up when looking throug the available registers
-// TODO: Where to set the speed??
-// We may have to implement clock control first
-
 // SPI 
-void scb_spi_set_master(uint32_t scb_block);
-void scb_spi_set_slave(uint32_t scb_block, uint8_t slave_select);
-void scb_spi_set_mode(uint32_t scb_block, uint8_t submode);
-void scb_spi_set_continuous(uint32_t scb_block, bool continuous);
-void scb_spi_is_busy(uint32_t scb_block);
+void scb_spi_set_master(intptr_t scb_block);
+void scb_spi_set_slave(intptr_t scb_block, uint8_t slave_select);
+void scb_spi_set_mode(intptr_t scb_block, uint8_t submode);
+void scb_spi_set_continuous(intptr_t scb_block, bool continuous);
+void scb_spi_is_busy(intptr_t scb_block);
 
 // SPI In Motorola mode
-void scb_spi_set_cpol(uint32_t scb_block, uint8_t cpol);
-void scb_spi_set_cpha(uint32_t scb_block, uint8_t cpha);
-void scb_spi_set_spimode(uint32_t scb_block, uint8_t spimode); // Convinience for setting cpol/cpha
+void scb_spi_set_cpol(intptr_t scb_block, uint8_t cpol);
+void scb_spi_set_cpha(intptr_t scb_block, uint8_t cpha);
+void scb_spi_set_spimode(intptr_t scb_block, uint8_t spimode); // Convinience for setting cpol/cpha
 
 // SPI In Texas Instruments mode
-void scb_spi_set_select_precede(uint32_t scb_block, bool select_precede);
+void scb_spi_set_select_precede(intptr_t scb_block, bool select_precede);
 
 // UART
-void scb_uart_set_mode(uint32_t scb_block, uint8_t uart_mode);
-void scb_uart_set_parity(uint32_t scb_block, uint8_t parity);
-void scb_uart_set_stop_bits(uint32_t scb_block, uint8_t stop_bits);
-void scb_uart_set_break_width(uint32_t scb_block, uint8_t break_width);
+void scb_uart_set_mode(intptr_t scb_block, uint8_t uart_mode);
+void scb_uart_set_parity(intptr_t scb_block, uint8_t parity);
+void scb_uart_set_stop_bits(intptr_t scb_block, uint8_t stop_bits);
+void scb_uart_set_break_width(intptr_t scb_block, uint8_t break_width);
 
 // I2C
-void scb_i2c_enable_master(uint32_t scb_block);
-void scb_i2c_enable_slave(uint32_t scb_block);
-void scb_i2c_disable_master(uint32_t scb_block);
-void scb_i2c_disable_slave(uint32_t scb_block);
-void scb_i2c_is_busy(uint32_t scb_block);
+void scb_i2c_enable_master(intptr_t scb_block);
+void scb_i2c_enable_slave(intptr_t scb_block);
+void scb_i2c_disable_master(intptr_t scb_block);
+void scb_i2c_disable_slave(intptr_t scb_block);
+void scb_i2c_is_busy(intptr_t scb_block);
 
 // All
-void scb_set_mode(uint32_t scb_block, uint8_t mode);
+void scb_set_mode(intptr_t scb_block, uint8_t mode);
 
-void scb_enable(uint32_t scb_block);
-void scb_disable(uint32_t scb_block);
-void scb_set_msb_first(uint32_t scb_block, bool msb_first);
-void scb_set_data_width(uint32_t scb_block, uint8_t data_width);
-void scb_set_oversampling(uint32_t scb_block, uint8_t oversamping);
+void scb_enable(intptr_t scb_block);
+void scb_disable(intptr_t scb_block);
+void scb_set_msb_first(intptr_t scb_block, bool msb_first);
+void scb_set_data_width(intptr_t scb_block, uint8_t data_width);
+void scb_set_oversampling(intptr_t scb_block, uint8_t oversamping);
 
-bool scb_has_data(uint32_t scb_block);
-uint16_t scb_read(uint32_t scb_block);
-void scb_write(uint32_t scb_block, uint16_t data);
+bool scb_has_data(intptr_t scb_block);
+uint16_t scb_read(intptr_t scb_block);
+void scb_write(intptr_t scb_block, uint16_t data);
 
-void scb_set_slave_address(uint32_t scb_block, uint8_t address, uint8_t mask);
+void scb_set_slave_address(intptr_t scb_block, uint8_t address, uint8_t mask);
 
 END_DECLS
 
