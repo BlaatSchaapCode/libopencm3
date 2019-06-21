@@ -45,7 +45,7 @@ void scb_set_oversampling(uint32_t scb_block, uint8_t oversamping) {
 }
 
 bool scb_has_data(uint32_t scb_block) {
-	return (SCB_RX_FIFO_STATUS(scb_block) & 0x111);
+	return (SCB_RX_FIFO_STATUS(scb_block) & 0b1111);
 }
 uint16_t scb_read(uint32_t scb_block) {
 	return SCB_RX_FIFO_RD(scb_block);
